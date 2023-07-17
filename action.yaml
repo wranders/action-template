@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-action.json
+---
+name: Action Template
+author: W Anders <w@doubleu.codes>
+description: |
+  This is a template repository for custom Github Actions written in Typescript.
+inputs:
+  required-config:
+    required: true
+    description: Explain why this is required
+  optional-config:
+    description: An optional configuration value
+    default: value
+runs:
+  using: node16
+  main: dist/index.js
+branding:
+  icon: info
+  color: purple

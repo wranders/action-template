@@ -1,0 +1,41 @@
+{
+  "name": "action-template",
+  "version": "0.0.0",
+  "description": "Template for custom Github Actions using Typescript",
+  "homepage": "https://www.doubleu.codes/action-template",
+  "bugs": {
+    "url": "https://github.com/wranders/action-template/issues"
+  },
+  "license": "MIT",
+  "author": "W Anders <w@doubleu.codes> (https://www.doubleu.codes/)",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wranders/action-template"
+  },
+  "scripts": {
+    "clean:dist": "node -e \"require('fs').rm('dist',{recursive:true,force:true},()=>{});\"",
+    "clean:lib": "node -e \"require('fs').rm('lib',{recursive:true,force:true},()=>{});\"",
+    "clean": "npm run clean:dist && npm run clean:lib",
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "prepackage": "npm run build",
+    "package": "ncc build --minify --license licenses.txt"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@vercel/ncc": "^0.36.1",
+    "typescript": "^5.1.6"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.2",
+    "@typescript-eslint/eslint-plugin": "^6.1.0",
+    "@typescript-eslint/parser": "^6.1.0",
+    "esbuild": "^0.18.13",
+    "eslint": "^8.45.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.0"
+  },
+  "private": true
+}
